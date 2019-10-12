@@ -9,6 +9,6 @@ namespace RateExchangeApp.Core
     public interface IExchangeLogic
     {
         double ConvertCurrency(double value, string currencyFrom, string currencyTo);
-        string GetListOfAvilableCurrencies();
+        IEnumerable<CurrencyType> GetListOfAvilableCurrencies();
     }
 }

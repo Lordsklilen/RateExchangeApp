@@ -50,8 +50,8 @@
       <HintPath>..\packages\Autofac.WebApi2.4.3.1\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -118,6 +118,10 @@
     <ProjectReference Include="..\RateExchangeApp.Core\RateExchangeApp.Core.csproj">
       <Project>{0a9b1aff-5fe7-47f6-bf2e-bc15bff15d32}</Project>
       <Name>RateExchangeApp.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RateExchangeApp.Repository\RateExchangeApp.Repository.csproj">
+      <Project>{46c3bd92-bb7a-43de-807b-14413c770dbf}</Project>
+      <Name>RateExchangeApp.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

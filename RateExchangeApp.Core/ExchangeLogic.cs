@@ -1,21 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RateExchangeApp.Core
 {
     public class ExchangeLogic : IExchangeLogic
     {
-        public double ConvertCurrency(double value, string currencyFrom, string currencyTo)
+        ICurrencyConverter converter;
+        public ExchangeLogic(ICurrencyConverter _converter)
         {
-            throw new NotImplementedException();
+            converter = _converter;
         }
 
-        public string GetListOfAvilableCurrencies()
+        public double ConvertCurrency(double value, string currencyFrom, string currencyTo)
         {
-            throw new NotImplementedException();
+            return converter.ConvertCurrency(value, currencyFrom, currencyTo);
+        }
+
+        public IEnumerable<CurrencyType> GetListOfAvilableCurrencies()
+        {
+            return Enum.GetValues(typeof(CurrencyType)).OfType<CurrencyType>().ToList();
         }
     }
 }

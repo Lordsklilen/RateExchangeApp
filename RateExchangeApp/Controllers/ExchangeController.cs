@@ -26,16 +26,15 @@ namespace RateExchangeApp.Controllers
 
         [HttpGet]
         [Route("api/Exchange/all")]
-        public string GetExchangeTable()
+        public IEnumerable<CurrencyType> GetExchangeTable()
         {
-
             return logic.GetListOfAvilableCurrencies();
         }
         //Route: http://localhost:53470/api/Exchange?value=1&currencyFrom=PLN&currencyTo=EUR
         [HttpGet]
-        public string GetExchangeValue(double value, string currencyFrom, string currencyTo)
+        public double GetExchangeValue(double value, string currencyFrom, string currencyTo)
         {
-            return logic.ConvertCurrency(value,currencyFrom,currencyTo).ToString();
+            return logic.ConvertCurrency(value,currencyFrom,currencyTo);
         }
     }
 }

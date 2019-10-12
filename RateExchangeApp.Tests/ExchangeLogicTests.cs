@@ -10,7 +10,7 @@ namespace RateExchangeApp.Tests
         [Theory]
         [InlineData(1,"PLN","EUR")]
         public void ConvertCurrencyTest(double value, string currencyFrom, string currencyTo) {
-            throw new NotImplementedException();
+            
         }
 
         [Fact]
