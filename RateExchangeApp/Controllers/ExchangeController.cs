@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RateExchangeApp.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,6 +10,13 @@ namespace RateExchangeApp.Controllers
 {
     public class ExchangeController : ApiController
     {
+        IExchangeLogic logic;// = new ExchangeLogic();
+
+        public ExchangeController(IExchangeLogic _logic)
+        {
+            logic = _logic;
+        }
+
         [HttpGet]
         [Route("api/Ping")]
         public string GetPing()
@@ -21,13 +29,13 @@ namespace RateExchangeApp.Controllers
         public string GetExchangeTable()
         {
 
-            return "All known values From NBP db";
+            return logic.GetListOfAvilableCurrencies();
         }
         //Route: http://localhost:53470/api/Exchange?value=1&currencyFrom=PLN&currencyTo=EUR
         [HttpGet]
-        public string GetExchangeValue(double value, string currencyFrom,string currencyTo)
+        public string GetExchangeValue(double value, string currencyFrom, string currencyTo)
         {
-            return $"Converting currency from {value} {currencyFrom} to {currencyTo}";
+            return logic.ConvertCurrency(value,currencyFrom,currencyTo).ToString();
         }
     }
 }
