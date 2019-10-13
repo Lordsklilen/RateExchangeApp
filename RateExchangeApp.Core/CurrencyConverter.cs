@@ -1,9 +1,10 @@
 ﻿using RateExchangeApp.Repository;
+using RateExchangeApp.Repository.Entities;
 using System;
-
+using System.Linq;
 namespace RateExchangeApp.Core
 {
-    public class CurrencyConverter:ICurrencyConverter
+    public class CurrencyConverter : ICurrencyConverter
     {
         INbpRepository repository;
         public CurrencyConverter(INbpRepository _repository)
@@ -11,21 +12,24 @@ namespace RateExchangeApp.Core
             repository = _repository;
 
         }
-        public double ConvertCurrency(double value, string from, string to) {
+        public double ConvertCurrency(double value, string from, string to)
+        {
             var CurrencyFrom = ParseCurrency(from);
             var CurrencyTo = ParseCurrency(to);
             var fromRate = GetRate(CurrencyFrom.ToString());
             var toRate = GetRate(CurrencyTo.ToString());
-            return value * fromRate/toRate;
+            return value * fromRate.Bid / toRate.Ask;
         }
 
-        private double GetRate(string currency) {
+        private Rate GetRate(string currency)
+        {
             if (string.Equals(currency, "PLN", StringComparison.InvariantCultureIgnoreCase))
-                return 1;
-            return repository.GetCurrentRate(currency);
+                return new Rate() { Ask = 1, Bid = 1 };
+            return repository.GetCurrentRate(currency).Rates.First();
         }
-        private CurrencyType ParseCurrency(string currency) {
-            CurrencyType currencyType = (CurrencyType) Enum.Parse(typeof(CurrencyType), currency.ToUpper());
+        private CurrencyType ParseCurrency(string currency)
+        {
+            CurrencyType currencyType = (CurrencyType)Enum.Parse(typeof(CurrencyType), currency.ToUpper());
             return currencyType;
         }
     }
