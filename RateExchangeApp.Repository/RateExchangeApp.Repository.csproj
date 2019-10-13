@@ -88,7 +88,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>LogEntity.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="App.Config" />
     <None Include="LogEntity.edmx.diagram">
       <DependentUpon>LogEntity.edmx</DependentUpon>
     </None>
