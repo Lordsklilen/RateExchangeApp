@@ -11,6 +11,6 @@ namespace RateExchangeApp.Repository.Entities
         public string Table;
         public string Currency;
         public string Code;
-        public List<Rate> Rates;
+        public List<Rate> Rates = new List<Rate>();
     }
 }

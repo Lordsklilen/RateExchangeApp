@@ -42,12 +42,24 @@ namespace RateExchangeApp.Core
             logRepository.CreateLog(log);
         }
 
-        public void SaveGetAllRatesLog() {
+        public void SaveGetAllRatesLog()
+        {
             ExchangeRatesLog log = new ExchangeRatesLog()
             {
                 OperationType = "GetAllRates",
                 RequestedURL = NbpRepository.urlAllAddress,
             };
+            logRepository.CreateLog(log);
+        }
+
+        public void SaveGetRatesLog(string[] types)
+        {
+            ExchangeRatesLog log = new ExchangeRatesLog()
+            {
+                OperationType = "GetRates",
+                RequestedURL = NbpRepository.urlSingleAddress,
+                CurrencyFrom = "["+ String.Join(",",types)+ "]"
+        };
             logRepository.CreateLog(log);
         }
     }

@@ -1,7 +1,7 @@
 # Rate Exchange App
-Aplikacja webowa napisana w C#/.net z wykorzystaniem entity framwework i  Microsoft SQL Server. Pobiera dane z api NBP (http://api.nbp.pl) i udostępnia 3 funkcjonalności w postaci zapytań GET w REST api:
+Aplikacja webowa napisana w C#/.net z wykorzystaniem entity framwework i  Microsoft SQL Server, pobierająca dane z api NBP (http://api.nbp.pl) i udostępniająca 4 funkcjonalności w postaci REST api:
 
-##### 1. Lista dostępnych walut na których można wykonać przeliczenia
+##### 1. Listę dostępnych walut na których można wykonać przeliczenia
 Zwraca wszystkie 3 literowe kody waluty zgodne z ISO 4217 (https://pl.wikipedia.org/wiki/ISO_4217), które są obsługiwane przez aplikację.
 Można to przetestować używając komendy:
 http://localhost:xxxxx/api/Exchange/Currencies
@@ -21,5 +21,11 @@ Zamienia 134.56 dolarów amerykańskich na walutę Euro. Wynikiem jest liczba eu
 Zwraca wszystkie kursy walut które udostępnia NBP.
 Można to przetestować używając komendy:
 http://localhost:xxxxx/api/Exchange/Rates
+
+##### 4. Udostępnienie aktualnych kursów dla listy podanej przez użytkownika 
+Zwraca kursy walut o które prosi użytkownik. Może podać dowolną liczbę elementów(trzyliterowych kodów zgodnych z ISO 4217).
+Można to przetestować używając komendy:
+http://localhost:xxxxx/api/Exchange/ListRates?currencies=USD&currencies=EUR&currencies=CHF
+
 
 Dodatkowo aplikacja loguje informacje o przeliczonych elementach do bazy danych mssql do której można podać namiary w web.config. Bazę można utworzyć za pomocą skryptu sql znajdującego się w repozytorium o nazwie "LogDB.sql".

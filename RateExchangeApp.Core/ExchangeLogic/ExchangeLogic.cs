@@ -60,5 +60,20 @@ namespace RateExchangeApp.Core
             }
             return result;
         }
+
+        public IEnumerable<Rate> GetRates(string[] currencies)
+        {
+            try
+            {
+                var result = converter.GetCurrencies(currencies);
+                logger.SaveGetRatesLog(currencies);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                logger.SaveErrorLog(ex, "ConvertCurrency");
+                throw;
+            }
+        }
     }
 }

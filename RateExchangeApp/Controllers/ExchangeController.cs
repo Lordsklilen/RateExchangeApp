@@ -28,7 +28,7 @@ namespace RateExchangeApp.Controllers
         {
             return logic.GetListOfAvilableCurrencies();
         }
-        //Route: http://localhost:53470/api/Exchange?value=1&currencyFrom=PLN&currencyTo=EUR
+        //Route: http://localhost:53470/api/Exchange?value=1&currencyFrom=USD&currencyTo=EUR
         [HttpGet]
         public decimal GetExchangeValue(decimal value, string currencyFrom, string currencyTo)
         {
@@ -40,6 +40,13 @@ namespace RateExchangeApp.Controllers
         public ExchangeRatesSeries GetAllRates()
         {
             return logic.GetAllRates();
+        }
+        //Route: http://localhost:53470/api/Exchange/ListRates?currencies=USD&currencies=EUR
+        [HttpGet]
+        [Route("api/Exchange/ListRates")]
+        public IEnumerable<Rate> GetAllRates([FromUri] string[] currencies)
+        {
+            return logic.GetRates(currencies);
         }
 
     }

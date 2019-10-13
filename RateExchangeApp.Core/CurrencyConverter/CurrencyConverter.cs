@@ -1,6 +1,7 @@
 ﻿using RateExchangeApp.Repository;
 using RateExchangeApp.Repository.Entities;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 namespace RateExchangeApp.Core
 {
@@ -26,14 +27,35 @@ namespace RateExchangeApp.Core
             return repository.GetAllRates();
         }
 
+        public IEnumerable<Rate> GetCurrencies(string[] currencies)
+        {
+            if (!currencies.Any())
+                return null;
+            List<Rate> result = new List<Rate>();
+            foreach (var currency in currencies) {
+                result.Add(GetRateWithMetadata(currency));
+            }
+            return result;
+        }
+
         private Rate GetRate(string currency)
         {
             if (string.Equals(currency, "PLN", StringComparison.InvariantCultureIgnoreCase))
                 return new Rate() { Ask = 1, Bid = 1 };
             return repository.GetCurrentRate(currency).Rates.First();
         }
+        private Rate GetRateWithMetadata(string currency)
+        {
+            if (string.Equals(currency, "PLN", StringComparison.InvariantCultureIgnoreCase))
+                return new Rate() { Ask = 1, Bid = 1 , Code = "PLN", Currency = "Polski złoty"};
+            var data = repository.GetCurrentRate(currency);
+            var result = data.Rates.First();
+            result.Code = data.Code;
+            result.Currency = data.Currency;
+            return result;
+        }
 
-        private CurrencyType ParseCurrency(string currency)
+    private CurrencyType ParseCurrency(string currency)
         {
             CurrencyType currencyType = (CurrencyType)Enum.Parse(typeof(CurrencyType), currency.ToUpper());
             return currencyType;
