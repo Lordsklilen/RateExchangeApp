@@ -1,7 +1,7 @@
 # Rate Exchange App
-Aplikacja webowa napisana w C#/.net z wykorzystanie entity framwework i  Microsoft SQL Server, pobierająca dane z api NBP (http://api.nbp.pl) i udostępniająca 3 funkcjonalności w postaci REST api:
+Aplikacja webowa napisana w C#/.net z wykorzystaniem entity framwework i  Microsoft SQL Server. Pobiera dane z api NBP (http://api.nbp.pl) i udostępnia 3 funkcjonalności w postaci zapytań GET w REST api:
 
-##### 1. Listę dostępnych walut na których można wykonać przeliczenia
+##### 1. Lista dostępnych walut na których można wykonać przeliczenia
 Zwraca wszystkie 3 literowe kody waluty zgodne z ISO 4217 (https://pl.wikipedia.org/wiki/ISO_4217), które są obsługiwane przez aplikację.
 Można to przetestować używając komendy:
 http://localhost:xxxxx/api/Exchange/Currencies
