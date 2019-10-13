@@ -46,7 +46,9 @@
     <Compile Include="ExchangeLogic\ExchangeLogic.cs" />
     <Compile Include="CurrencyConverter\ICurrencyConverter.cs" />
     <Compile Include="ExchangeLogic\IExchangeLogic.cs" />
-    <Compile Include="Logger.cs" />
+    <Compile Include="Logger\EmptyLogger.cs" />
+    <Compile Include="Logger\Logger.cs" />
+    <Compile Include="Logger\ILogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

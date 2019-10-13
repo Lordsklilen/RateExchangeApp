@@ -2,13 +2,13 @@
 using RateExchangeApp.Repository.Entities;
 using System.Collections.Generic;
 using System.Web.Http;
-
+using RateExchangeApp.Core.Logger;
 namespace RateExchangeApp.Controllers
 {
     public class ExchangeController : ApiController
     {
         IExchangeLogic logic;// = new ExchangeLogic();
-        Logger logger;
+        ILogger logger;
         public ExchangeController(IExchangeLogic _logic)
         {
             logic = _logic;

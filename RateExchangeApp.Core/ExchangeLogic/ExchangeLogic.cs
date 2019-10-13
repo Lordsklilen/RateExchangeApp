@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using RateExchangeApp.Core.Logger;
 using RateExchangeApp.Repository.Entities;
 
 namespace RateExchangeApp.Core
@@ -8,8 +9,8 @@ namespace RateExchangeApp.Core
     public class ExchangeLogic : IExchangeLogic
     {
         ICurrencyConverter converter;
-        Logger logger;
-        public ExchangeLogic(ICurrencyConverter _converter, Logger _logger)
+        ILogger logger;
+        public ExchangeLogic(ICurrencyConverter _converter, ILogger _logger)
         {
             converter = _converter;
             logger = _logger;

@@ -1,9 +1,9 @@
 ﻿using RateExchangeApp.Repository;
 using System;
 
-namespace RateExchangeApp.Core
+namespace RateExchangeApp.Core.Logger
 {
-    public class Logger
+    public class Logger:ILogger
     {
         ILogRepository logRepository;
         public Logger(ILogRepository _logRepository) {

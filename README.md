@@ -28,4 +28,16 @@ Można to przetestować używając komendy:
 http://localhost:xxxxx/api/Exchange/ListRates?currencies=USD&currencies=EUR&currencies=CHF
 
 
-Dodatkowo aplikacja loguje informacje o przeliczonych elementach do bazy danych mssql do której można podać namiary w web.config. Bazę można utworzyć za pomocą skryptu sql znajdującego się w repozytorium o nazwie "LogDB.sql".
+Dodatkowo aplikacja loguje informacje o przeliczonych elementach do bazy danych mssql do której można podać namiary w web.config. Bazę można utworzyć za pomocą skryptu sql znajdującego się w repozytorium o nazwie "LogDB.sql". Logowanie do bazy danych można wyłączyć w configu. Wystarczy w Web.config zmienić wartość parametru "UseLogsToDB":
+```xml
+<appSettings>
+	<add  key="UseLogsToDB"  value="true" />
+</appSettings>
+```
+Z true na false:
+
+```xml
+<appSettings>
+	<add  key="UseLogsToDB"  value="false" />
+</appSettings>
+```
