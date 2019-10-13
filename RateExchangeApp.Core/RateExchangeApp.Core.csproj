@@ -41,11 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CurrencyConverter.cs" />
+    <Compile Include="CurrencyConverter\CurrencyConverter.cs" />
     <Compile Include="CurrencyType.cs" />
-    <Compile Include="ExchangeLogic.cs" />
-    <Compile Include="ICurrencyConverter.cs" />
-    <Compile Include="IExchangeLogic.cs" />
+    <Compile Include="ExchangeLogic\ExchangeLogic.cs" />
+    <Compile Include="CurrencyConverter\ICurrencyConverter.cs" />
+    <Compile Include="ExchangeLogic\IExchangeLogic.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

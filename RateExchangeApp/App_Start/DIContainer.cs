@@ -23,6 +23,7 @@ namespace RateExchangeApp.App_Start
             builder.RegisterType<CurrencyConverter>().As<ICurrencyConverter>();
             builder.RegisterType<NbpRepository>().As<INbpRepository>();
             builder.RegisterType<LogRepository>().As<ILogRepository>();
+            builder.RegisterType<Logger>();
             container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
         }

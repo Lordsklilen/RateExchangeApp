@@ -8,9 +8,9 @@ namespace RateExchangeApp.Repository.Entities
 {
     public class Rate
     {
-        public string No;
-        public string EffectiveDate;
-        public double Bid;
-        public double Ask;
+        public string Currency;
+        public string Code;
+        public decimal Bid;
+        public decimal Ask;
     }
 }
